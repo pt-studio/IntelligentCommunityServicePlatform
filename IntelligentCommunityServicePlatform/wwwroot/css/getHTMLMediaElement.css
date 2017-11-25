@@ -7,6 +7,7 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
 .media-container, .media-container * {
     margin: 0;
     padding: 0;
+    margin:auto;
     -webkit-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
@@ -23,7 +24,7 @@ Documentation - github.com/muaz-khan/WebRTC-Experiment/tree/master/getMediaEleme
 
 .media-container {
     width: 36%;
-    display: inline-block;
+    /*display: inline-block;*/
     border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
     overflow: hidden;

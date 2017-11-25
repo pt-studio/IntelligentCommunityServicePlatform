@@ -6,7 +6,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <form-wizard title="Thông tin" subtitle="" next-button-text="Tiếp tục" back-button-text="Trở lại" finish-button-text="Kết thúc">
-            <tab-content title="Thông tin" class="text-left">
+            <tab-content title="Thông tin" :before-change="onStepChange" class="text-left">
                 <form>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
@@ -29,10 +29,8 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
                         <div class="col-sm-9">
-                            <select class="form-control" multiple>
-                                <option>Hỏa hoạn</option>
-                                <option>Tai nạn giao thông</option>
-                                <option>Đánh nhau</option>
+                            <select class="form-control" v-model="request">
+                                <option v-for="record in records" v-bind:value="record.id">{{ record.name }}</option>
                             </select>
                         </div>
                     </div>
@@ -44,22 +42,30 @@
                             <label>Địa điểm của bạn: </label> <p id="your_location"></p>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Chi tiết:</label>
+                        <div class="col-sm-9">
+                            <textarea type="text" row="5" class="form-control" id="staticEmail" v-model="description"></textarea>
+                        </div>
+                    </div>
                 </form>
             </tab-content>
             <tab-content title="Hiện trường">
                 <div class="form-group row" style="display:none">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Mã báo cáo:</label>
                     <div class="col-sm-9">
-                        <input class="form-control" type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
+                        <input class="form-control" type="text" id="room-id" v-bind="reportId" autocorrect=off autocapitalize=off size=20>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <button id="open-room" class="btn">Ghi hình</button>
+                    <button id="open-room" style="display:none" class="btn btn-primary">Ghi hình</button>
                 </div>
                 <button id="join-room" style="display:none">Join Room</button>
                 <button id="open-or-join-room" style="display:none">Auto Open Or Join Room</button>
                 <div id="room-urls" style="text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;"></div>
-                <div id="videos-container"></div>
+                <div style="padding-bottom:30px" class="col-md-12" id="videos-container"></div>
+                <br/>
             </tab-content>
         </form-wizard>
     </div>
@@ -80,7 +86,62 @@
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                message: 'Hello Vue!',
+                name: 'Nguyễn Mạnh Phúc',
+                reportId: '',
+                records: [],
+                identity: '12345678',
+                permanentAddress: 'khu phố An Hòa, Phường Hòa Lợi, Thị Xã Bến Cát, Bình Dương',
+                location: '',
+                request: '',
+                description: '',
+            },
+            created() {
+                axios.get('/api/stream/generateId')
+                .then(function (response) {
+                    console.log(response.data);
+                    this.reportId = response.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    });
+                let recordsHolder = this.records;
+                axios.get('/api/organizations/')
+                    .then(function (response) {
+                        for (let i = 0; i < response.data.length; i++) {
+                            recordsHolder.push(response.data[i]);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            methods: {
+                onStepChange() {
+                    //    alert('Change');
+                    const record = {
+                        "name": this.name,
+                        "identity": this.identity,
+                        "permanentAddress": this.permanentAddress,
+                        "location": this.location,
+                        "reportForId": this.request,
+                        "description": this.description
+                    }
+                    axios.post('/api/formdatas/', record)
+                        .then(function (response) {
+                            console.log(response);
+                            connection.open(this.reportId, function () {
+                                showRoomURL(connection.sessionid);
+                            });
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                    return true;
+                },
+                submit() {
+                    
+                }
             }
         })
         // ......................................................
@@ -191,19 +252,19 @@
         // ......................................................
 
         function showRoomURL(roomid) {
-            var roomHashURL = '#' + roomid;
-            var roomQueryStringURL = '?roomid=' + roomid;
+            //var roomHashURL = '#' + roomid;
+            //var roomQueryStringURL = '?roomid=' + roomid;
 
-            var html = '<h2>Unique URL for your room:</h2><br>';
+            //var html = '<h2>Unique URL for your room:</h2><br>';
 
-            html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
-            html += '<br>';
-            html += 'QueryString URL: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
+            //html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
+            //html += '<br>';
+            //html += 'QueryString URL: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
 
-            var roomURLsDiv = document.getElementById('room-urls');
-            roomURLsDiv.innerHTML = html;
+            //var roomURLsDiv = document.getElementById('room-urls');
+            //roomURLsDiv.innerHTML = html;
 
-            roomURLsDiv.style.display = 'block';
+            //roomURLsDiv.style.display = 'block';
         }
 
         (function () {

@@ -64,6 +64,11 @@ namespace IntelligentCommunityServicePlatform
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "HomeRoute",
+                    "{action}",
+                    new { controller = "Home", action = "Index" }
+                );
+                routes.MapRoute(
                     name: "api",
                     template: "api/{controller=FormDatas}");
                 routes.MapRoute(

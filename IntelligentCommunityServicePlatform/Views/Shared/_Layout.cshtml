@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -16,12 +16,13 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     <script src="~/js/menu.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
     <div class="container">
         <div class="header clearfix">
-            <h2 class="display-3"><img height="80" src="https://upload.wikimedia.org/wikipedia/vi/c/c8/Logobinhduong.PNG" /> Cổng thông tin Bình Dương</h2>
+            <h2 class="display-3"><img height="80" src="https://upload.wikimedia.org/wikipedia/vi/c/c8/Logobinhduong.PNG" /> Dịch vụ công Bình Dương</h2>
             @*<h3 class="text-muted">Unified Services</h3>*@
         </div>
         </br>
