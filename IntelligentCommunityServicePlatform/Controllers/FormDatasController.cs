@@ -89,7 +89,7 @@ namespace IntelligentCommunityServicePlatform.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            formData.CreatedAt = DateTime.Now;
             _context.FormDatas.Add(formData);
             await _context.SaveChangesAsync();
 
