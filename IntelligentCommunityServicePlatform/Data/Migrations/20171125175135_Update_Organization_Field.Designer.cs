@@ -11,9 +11,10 @@ using System;
 namespace IntelligentCommunityServicePlatform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171125175135_Update_Organization_Field")]
+    partial class Update_Organization_Field
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,8 +80,6 @@ namespace IntelligentCommunityServicePlatform.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
 
                     b.Property<string>("Identity");
 

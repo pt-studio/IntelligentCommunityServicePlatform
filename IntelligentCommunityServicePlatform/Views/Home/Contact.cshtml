@@ -29,10 +29,8 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
                         <div class="col-sm-9">
-                            <select class="form-control">
-                                <option>Hỏa hoạn</option>
-                                <option>Tai nạn giao thông</option>
-                                <option>Đánh nhau</option>
+                            <select class="form-control" v-model="request">
+                                <option v-for="record in records" v-bind:value="record.id">{{ record.name }}</option>
                             </select>
                         </div>
                     </div>
@@ -48,7 +46,7 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Chi tiết:</label>
                         <div class="col-sm-9">
-                            <textarea type="text" row="5" class="form-control" id="staticEmail"></textarea>
+                            <textarea type="text" row="5" class="form-control" id="staticEmail" v-model="description"></textarea>
                         </div>
                     </div>
                 </form>
@@ -89,7 +87,14 @@
             el: '#app',
             data: {
                 message: 'Hello Vue!',
+                name: 'Nguyễn Mạnh Phúc',
                 reportId: '',
+                records: [],
+                identity: '12345678',
+                permanentAddress: 'khu phố An Hòa, Phường Hòa Lợi, Thị Xã Bến Cát, Bình Dương',
+                location: '',
+                request: '',
+                description: '',
             },
             created() {
                 axios.get('/api/stream/generateId')
@@ -99,17 +104,44 @@
                 })
                 .catch(function (error) {
                     console.log(error);
-                });
+                    });
+                let recordsHolder = this.records;
+                axios.get('/api/organizations/')
+                    .then(function (response) {
+                        for (let i = 0; i < response.data.length; i++) {
+                            recordsHolder.push(response.data[i]);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             methods: {
                 onStepChange() {
                     //    alert('Change');
-                    connection.open(this.reportId, function () {
-                        showRoomURL(connection.sessionid);
-                    });
+                    const record = {
+                        "name": this.name,
+                        "identity": this.identity,
+                        "permanentAddress": this.permanentAddress,
+                        "location": this.location,
+                        "reportForId": this.request,
+                        "description": this.description
+                    }
+                    axios.post('/api/formdatas/', record)
+                        .then(function (response) {
+                            console.log(response);
+                            connection.open(this.reportId, function () {
+                                showRoomURL(connection.sessionid);
+                            });
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                     return true;
+                },
+                submit() {
+                    
                 }
-
             }
         })
         // ......................................................

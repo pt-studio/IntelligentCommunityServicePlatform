@@ -11,9 +11,10 @@ using System;
 namespace IntelligentCommunityServicePlatform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171125181921_Add_Field_Description_For_FormData")]
+    partial class Add_Field_Description_For_FormData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
