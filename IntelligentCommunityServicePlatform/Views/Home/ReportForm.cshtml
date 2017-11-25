@@ -27,8 +27,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
                         <div class="col-sm-9">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
                             <select class="form-control" v-model="request">
                                 <option v-for="record in records" v-bind:value="record.id">{{ record.name }}</option>
                             </select>
@@ -97,14 +97,6 @@
                 description: '',
             },
             created() {
-                axios.get('/api/stream/generateId')
-                .then(function (response) {
-                    console.log(response.data);
-                    this.reportId = response.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    });
                 let recordsHolder = this.records;
                 axios.get('/api/organizations/')
                     .then(function (response) {
@@ -125,14 +117,25 @@
                         "permanentAddress": this.permanentAddress,
                         "location": this.location,
                         "reportForId": this.request,
-                        "description": this.description
+                        "description": this.description,
+                        "streamId": this.reportId
                     }
-                    axios.post('/api/formdatas/', record)
+
+                    axios.get('/api/stream/generateId')
                         .then(function (response) {
-                            console.log(response);
-                            connection.open(this.reportId, function () {
-                                showRoomURL(connection.sessionid);
-                            });
+                            console.log(response.data);
+                            this.reportId = response.data;
+                            record.streamId = response.data 
+                            axios.post('/api/formdatas/', record)
+                                .then(function (response) {
+                                    console.log(response);
+                                    connection.open(this.reportId, function () {
+                                        showRoomURL(connection.sessionid);
+                                    });
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
                         })
                         .catch(function (error) {
                             console.log(error);
