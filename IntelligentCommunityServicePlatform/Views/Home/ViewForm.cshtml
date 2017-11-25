@@ -5,132 +5,153 @@
 <section id="app" class="make-center">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <form>
-            <div id="short">
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nguyễn Mạnh Phúc</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">12345678</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Phòng cháy chữa cháy</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-9">
-                        <a href="#" onclick="ViewMore()">xem nhiều hơn...</a>
-                    </div>
+        <div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="newName">Nguyễn Mạnh Phúc</span>
                 </div>
             </div>
-            <div id="detail" style="display:none;">
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nguyễn Mạnh Phúc</span>
-                    </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="newindetity">12345678</span>
                 </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">12345678</span>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="newStyle">Phòng cháy chữa cháy</span>
                 </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Địa chỉ thường trú:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">khu phố An Hòa, Phường Hòa Lợi, Thị Xã Bến Cát, Bình Dương</span>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <a href="#" onclick="ViewMore(this)">xem nhiều hơn...</a>
                 </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Phòng cháy chữa cháy</span>
+                <div class="hidden">
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Vị trí hiện tại:</label>
+                        <div class="col-sm-9">
+                            <label>Tọa độ người gửi: </label><p id="new_coordinate"></p>
+                            <label>Địa điểm người gửi: </label> <p id="new_your_location"></p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Vị trí hiện tại:</label>
-                    <div class="col-sm-9">
-                        <label>Tọa độ người gửi: </label><p id="coordinate"></p>
-                        <label>Địa điểm người gửi: </label> <p id="your_location"></p>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">
+                            Chi tiết: =>
+                        </label>
+                        <div class="col-sm-9">
+                            <span type="text" readonly class="form-control-plaintext" id="new_description"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="videos-container">
+                    </div>
+                    <div class="form-group row">
+                        <a href="#" onclick="ViewLess()">xem ít hơn...</a>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Chi tiết:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nội dung chi tiết</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XdmbzsQLpCI" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="form-group row">
-                    <a href="#" onclick="ViewLess()">xem ít hơn...</a>
+        </div>
+        <div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nguyễn Mạnh Phúc</span>
                 </div>
             </div>
-            <hr />
-            <div id="short2">
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Bùi Nguyễn Thanh Phi</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">823456780123</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Tắt đường</span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-9">
-                        <a href="#" onclick="ViewMore()">xem nhiều hơn...</a>
-                    </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">12345678</span>
                 </div>
             </div>
-            <hr />
-            <div id="short3">
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Lưu Nhật PHi </span>
-                    </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">Phòng cháy chữa cháy</span>
                 </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">823456780123</span>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <a href="#" onclick="ViewMore(this)">xem nhiều hơn...</a>
                 </div>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
-                    <div class="col-sm-9">
-                        <span type="text" readonly class="form-control-plaintext" id="staticEmail">Ùng tắc giao thông</span>
+                <div class="hidden">
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Vị trí hiện tại:</label>
+                        <div class="col-sm-9">
+                            <label>Tọa độ người gửi: </label><p id="coordinate"></p>
+                            <label>Địa điểm người gửi: </label> <p id="your_location"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-9">
-                        <a href="#" onclick="ViewMore()">xem nhiều hơn...</a>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Chi tiết:</label>
+                        <div class="col-sm-9">
+                            <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nội dung chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XdmbzsQLpCI" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="form-group row">
+                        <a href="#" onclick="ViewLess()">xem ít hơn...</a>
                     </div>
                 </div>
             </div>
-        </form>
+
+        </div>
+
+        <hr />
+
+        <div id="short3">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Họ và tên:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">Lưu Nhật PHi </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Mã định danh:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">823456780123</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Nội dung:</label>
+                <div class="col-sm-9">
+                    <span type="text" readonly class="form-control-plaintext" id="staticEmail">Ùng tắc giao thông</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <a href="#" onclick="ViewMore(this)">xem nhiều hơn...</a>
+                </div>
+                <div class="hidden">
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Vị trí hiện tại:</label>
+                        <div class="col-sm-9">
+                            <label>Tọa độ người gửi: </label><p id="coordinate"></p>
+                            <label>Địa điểm người gửi: </label> <p id="your_location"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Chi tiết:</label>
+                        <div class="col-sm-9">
+                            <span type="text" readonly class="form-control-plaintext" id="staticEmail">Nội dung chi tiết</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XdmbzsQLpCI" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="form-group row">
+                        <a href="#" onclick="ViewLess()">xem ít hơn...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 @section Scripts{
@@ -146,101 +167,66 @@
     <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
     <script>
         window.enableAdapter = true; // enable adapter.js
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello Vue!',
-                name: 'Nguyễn Mạnh Phúc',
-                reportId: '',
-                records: [],
-                identity: '12345678',
-                permanentAddress: 'khu phố An Hòa, Phường Hòa Lợi, Thị Xã Bến Cát, Bình Dương',
-                location: '',
-                request: '',
-                description: '',
-            },
-            created() {
-                axios.get('/api/stream/generateId')
-                .then(function (response) {
-                    console.log(response.data);
-                    this.reportId = response.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    });
-                let recordsHolder = this.records;
-                axios.get('/api/organizations/')
-                    .then(function (response) {
-                        for (let i = 0; i < response.data.length; i++) {
-                            recordsHolder.push(response.data[i]);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            },
-            methods: {
-                onStepChange() {
-                    //    alert('Change');
-                    const record = {
-                        "name": this.name,
-                        "identity": this.identity,
-                        "permanentAddress": this.permanentAddress,
-                        "location": this.location,
-                        "reportForId": this.request,
-                        "description": this.description
-                    }
-                    axios.post('/api/formdatas/', record)
-                        .then(function (response) {
-                            console.log(response);
-                            connection.open(this.reportId, function () {
-                                showRoomURL(connection.sessionid);
-                            });
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                    return true;
-                },
-                submit() {
-                    
-                }
-            }
-        })
+        function ViewMore(ele) {
+            //console.log(ele);
+            ele.parentNode.parentNode.children[1].removeAttribute("class");
+            ele.parentNode.className += " hidden";
+        }
+
+        function ViewLess() {
+            document.getElementById("detail").style.display = "none";
+            document.getElementById("short").style.display = "inline";
+        }
+        $(document).ready(function () {
+            var t = $.getJSON('/api/formdatas', function (data) {
+                connection.sdpConstraints.mandatory = {
+                    OfferToReceiveAudio: true,
+                    OfferToReceiveVideo: true
+                };
+                connection.join(data[0].streamId);
+                document.getElementById("newName").innerHTML = data[0].name
+                document.getElementById("newindetity").innerHTML = data[0].identity
+                document.getElementById("newStyle").innerHTML = "Sự cố cầu đường"
+                document.getElementById("new_coordinate").innerHTML = data[0].location
+                document.getElementById("new_your_location").innerHTML = data[0].permanentAddress
+                document.getElementById("new_description").innerHTML = data[0].description
+            })
+
+        });
         // ......................................................
         // .......................UI Code........................
         // ......................................................
-        document.getElementById('open-room').onclick = function () {
-            disableInputButtons();
-            connection.open(document.getElementById('room-id').value, function () {
-                showRoomURL(connection.sessionid);
-            });
-        };
+        //document.getElementById('open-room').onclick = function () {
+        //    disableInputButtons();
+        //    connection.open(document.getElementById('room-id').value, function () {
+        //        showRoomURL(connection.sessionid);
+        //    });
+        //};
 
-        document.getElementById('join-room').onclick = function () {
-            disableInputButtons();
+        //document.getElementById('join-room').onclick = function () {
+        //    disableInputButtons();
 
-            connection.sdpConstraints.mandatory = {
-                OfferToReceiveAudio: true,
-                OfferToReceiveVideo: true
-            };
-            connection.join(document.getElementById('room-id').value);
-        };
+        //    connection.sdpConstraints.mandatory = {
+        //        OfferToReceiveAudio: true,
+        //        OfferToReceiveVideo: true
+        //    };
+        //    connection.join(document.getElementById('room-id').value);
+        //};
 
-        document.getElementById('open-or-join-room').onclick = function () {
-            disableInputButtons();
-            connection.openOrJoin(document.getElementById('room-id').value, function (isRoomExist, roomid) {
-                if (!isRoomExist) {
-                    showRoomURL(roomid);
-                }
-                else {
-                    connection.sdpConstraints.mandatory = {
-                        OfferToReceiveAudio: true,
-                        OfferToReceiveVideo: true
-                    };
-                }
-            });
-        };
+        //document.getElementById('open-or-join-room').onclick = function () {
+        //    disableInputButtons();
+        //    connection.openOrJoin(document.getElementById('room-id').value, function (isRoomExist, roomid) {
+        //        if (!isRoomExist) {
+        //            showRoomURL(roomid);
+        //        }
+        //        else {
+        //            connection.sdpConstraints.mandatory = {
+        //                OfferToReceiveAudio: true,
+        //                OfferToReceiveVideo: true
+        //            };
+        //        }
+        //    });
+        //};
 
         // ......................................................
         // ..................RTCMultiConnection Code.............
@@ -279,7 +265,7 @@
             }
             video.srcObject = event.stream;
 
-            var width = parseInt(connection.videosContainer.clientWidth / 2) - 20;
+            var width = 500;
             var mediaElement = getHTMLMediaElement(video, {
                 title: event.userid,
                 buttons: ['full-screen'],
@@ -314,21 +300,7 @@
         // ......................Handling Room-ID................
         // ......................................................
 
-        function showRoomURL(roomid) {
-            //var roomHashURL = '#' + roomid;
-            //var roomQueryStringURL = '?roomid=' + roomid;
 
-            //var html = '<h2>Unique URL for your room:</h2><br>';
-
-            //html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
-            //html += '<br>';
-            //html += 'QueryString URL: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
-
-            //var roomURLsDiv = document.getElementById('room-urls');
-            //roomURLsDiv.innerHTML = html;
-
-            //roomURLsDiv.style.display = 'block';
-        }
 
         (function () {
             var params = {},
@@ -349,10 +321,10 @@
         } else {
             roomid = connection.token();
         }
-        document.getElementById('room-id').value = roomid;
-        document.getElementById('room-id').onkeyup = function () {
-            localStorage.setItem(connection.socketMessageEvent, this.value);
-        };
+        //document.getElementById('room-id').value = roomid;
+        //document.getElementById('room-id').onkeyup = function () {
+        //    localStorage.setItem(connection.socketMessageEvent, this.value);
+        //};
 
         var hashString = location.hash.replace('#', '');
         if (hashString.length && hashString.indexOf('comment-') == 0) {
@@ -365,7 +337,7 @@
         }
 
         if (roomid && roomid.length) {
-            document.getElementById('room-id').value = roomid;
+            //document.getElementById('room-id').value = roomid;
             localStorage.setItem(connection.socketMessageEvent, roomid);
 
             // auto-join-room
@@ -389,7 +361,7 @@
     </script>
     <script src="https://cdn.webrtc-experiment.com/common.js"></script>
 
-<script>
+    <script>
 
         function initMap() {
             getLocation();
@@ -434,23 +406,15 @@
 
             geocodeLatLng(geocoder, infowindow);
         }
-</script>
+    </script>
 
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDm5tkZfFC3Nq4MD3r5QQWatAbt8zSDNw&callback=initMap">
-</script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDm5tkZfFC3Nq4MD3r5QQWatAbt8zSDNw&callback=initMap">
+    </script>
 
 
-<script>
-        function ViewMore() {
-            document.getElementById("detail").style.display = "inline"; //visible
-            document.getElementById("short").style.display = "none";
-        }
+    <script>
 
-        function ViewLess() {
-            document.getElementById("detail").style.display = "none";
-            document.getElementById("short").style.display = "inline";
-        }
-</script>
+    </script>
 }
