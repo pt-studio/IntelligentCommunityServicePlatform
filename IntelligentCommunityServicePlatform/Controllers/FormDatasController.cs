@@ -24,7 +24,7 @@ namespace IntelligentCommunityServicePlatform.Controllers
         [HttpGet]
         public IEnumerable<FormData> GetFormDatas()
         {
-            return _context.FormDatas;
+            return _context.FormDatas.OrderByDescending(x => x.CreatedAt);
         }
 
         // GET: api/FormDatas/5
