@@ -43,7 +43,12 @@ namespace IntelligentCommunityServicePlatform.Pages.Account.Manage
             [Required]
             [EmailAddress]
             public string Email { get; set; }
-
+            [Required]
+            [Display(Name = "Name")]
+            public string Name { get; set; }
+            [Required]
+            [Display(Name = "Identity")]
+            public string Identity { get; set; }
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -62,7 +67,9 @@ namespace IntelligentCommunityServicePlatform.Pages.Account.Manage
             Input = new InputModel
             {
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                Name = user.Name,
+                Identity = user.Identity
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -101,6 +108,12 @@ namespace IntelligentCommunityServicePlatform.Pages.Account.Manage
                 }
             }
 
+
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new ApplicationException($"Unexpected error occurred when update profile for user with ID '{user.Id}'.");
+            }
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }

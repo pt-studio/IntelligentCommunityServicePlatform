@@ -40,6 +40,11 @@ namespace IntelligentCommunityServicePlatform
                     options.Conventions.AuthorizePage("/Account/Logout");
                 });
 
+            services.Configure<IISOptions>(options =>
+            {
+
+            });
+
             // Register no-op EmailSender used by account confirmation and password reset during development
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
             services.AddSingleton<IEmailSender, EmailSender>();
@@ -65,6 +70,9 @@ namespace IntelligentCommunityServicePlatform
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "api",
+                    template: "api/{controller=Stream}");
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
