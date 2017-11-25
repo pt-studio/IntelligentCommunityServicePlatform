@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentCommunityServicePlatform", "IntelligentCommunityServicePlatform\IntelligentCommunityServicePlatform.csproj", "{6DC4EC51-D44D-42F1-9147-E7CC1A30FD4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentCommunityServicePlatform", "IntelligentCommunityServicePlatform\IntelligentCommunityServicePlatform.csproj", "{84BE2453-9147-4845-80FA-5B6CA51ADE0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6DC4EC51-D44D-42F1-9147-E7CC1A30FD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DC4EC51-D44D-42F1-9147-E7CC1A30FD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DC4EC51-D44D-42F1-9147-E7CC1A30FD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DC4EC51-D44D-42F1-9147-E7CC1A30FD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BE2453-9147-4845-80FA-5B6CA51ADE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BE2453-9147-4845-80FA-5B6CA51ADE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BE2453-9147-4845-80FA-5B6CA51ADE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BE2453-9147-4845-80FA-5B6CA51ADE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9AF44EB8-3E2C-48B3-8654-6426BA3F4BD7}
+		SolutionGuid = {1B321FE5-EB3A-4253-A453-FD4CB237D43D}
 	EndGlobalSection
 EndGlobal

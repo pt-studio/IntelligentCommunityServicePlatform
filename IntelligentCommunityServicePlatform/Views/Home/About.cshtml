@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Quản lý";
+}
+<h2>@ViewData["Quản lý"]</h2>
+@*<h3>@Model.Message</h3>*@
+<h3>Quản lý báo cáo</h3>
+<form>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label">Tên:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticEmail" value="" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label">Sở:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticEmail" value="" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input type="button" class="btn" id="staticEmail" value="Thêm" />
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Sở</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Báo cháy</td>
+                <td>Sở phòng cháy chữa cháy</td>
+            </tr>
+            <tr>
+                <td>Giao Thông</td>
+                <td>Phòng cảnh sát giao thông</td>
+            </tr>
+            <tr>
+                <td>Tội phạm</td>
+                <td>Cảnh sát hình sự</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
