@@ -11,9 +11,10 @@ using System;
 namespace IntelligentCommunityServicePlatform.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171125131602_Update_FormData_Table")]
+    partial class Update_FormData_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,18 +94,6 @@ namespace IntelligentCommunityServicePlatform.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FormDatas");
-                });
-
-            modelBuilder.Entity("IntelligentCommunityServicePlatform.Data.Organization", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Organizations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

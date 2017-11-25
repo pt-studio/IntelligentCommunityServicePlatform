@@ -15,6 +15,7 @@ namespace IntelligentCommunityServicePlatform.Data
         }
 
         public DbSet<FormData> FormDatas { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
