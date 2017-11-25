@@ -40,7 +40,8 @@
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Vị trí hiện tại:</label>
                         <div class="col-sm-9">
-                            <span type="text" readonly class="form-control-plaintext" id="staticEmail">Phường Định Hòa, Thành Phố Thủ Dầu Một, Bình Dương</span>
+                            <label>Tọa độ của bạn: </label><p id="coordinate"></p>
+                            <label>Địa điểm của bạn: </label> <p id="your_location"></p>
                         </div>
                     </div>
                 </form>
@@ -263,4 +264,57 @@
         }
     </script>
     <script src="https://cdn.webrtc-experiment.com/common.js"></script>
+
+<script>
+
+        function initMap() {
+            getLocation();
+
+
+        }
+
+        function geocodeLatLng(geocoder, infowindow) {
+            var input = document.getElementById('coordinate').innerText;
+
+            var latlngStr = input.split(',', 2);
+            var latlng = { lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1]) };
+            //var latlng = { lat: parseFloat('11.0818637'), lng: parseFloat('106.6802394') };
+            geocoder.geocode({ 'location': latlng }, function (results, status) {
+                if (status === 'OK') {
+                    if (results[0]) {
+                        document.getElementById("your_location").innerText = results[0].formatted_address;
+                    } else {
+                        window.alert('No results found');
+                    }
+                } else {
+                    window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+        }
+
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            document.getElementById("coordinate").innerHTML = lat + "," + lng;
+
+            var geocoder = new google.maps.Geocoder;
+            var infowindow = new google.maps.InfoWindow;
+
+            geocodeLatLng(geocoder, infowindow);
+        }
+</script>
+
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDm5tkZfFC3Nq4MD3r5QQWatAbt8zSDNw&callback=initMap">
+</script>
+
 }
