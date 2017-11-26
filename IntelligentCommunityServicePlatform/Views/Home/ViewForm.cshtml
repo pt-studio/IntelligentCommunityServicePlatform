@@ -186,7 +186,7 @@
                 connection.join(data[0].streamId);
                 document.getElementById("newName").innerHTML = data[0].name
                 document.getElementById("newindetity").innerHTML = data[0].identity
-                document.getElementById("newStyle").innerHTML = "Sự cố cầu đường"
+                document.getElementById("newStyle").innerHTML = data[0].reportFor
                 document.getElementById("new_coordinate").innerHTML = data[0].location
                 document.getElementById("new_your_location").innerHTML = data[0].permanentAddress
                 document.getElementById("new_description").innerHTML = data[0].description
@@ -267,7 +267,7 @@
 
             var width = 500;
             var mediaElement = getHTMLMediaElement(video, {
-                title: event.userid,
+                //title: event.userid,
                 buttons: ['full-screen'],
                 width: width,
                 showOnMouseEnter: false
