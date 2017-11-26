@@ -17,6 +17,7 @@ namespace IntelligentCommunityServicePlatform.Data
         public string Location { get; set; }
         public string Description { get; set; }
         public int ReportForId { get; set; }
+        public string ReportFor { get; set; }
         public string StreamId { get; set; }
         public DateTime CreatedAt { get; set; }
     }
