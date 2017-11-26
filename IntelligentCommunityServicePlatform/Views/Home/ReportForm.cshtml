@@ -70,6 +70,11 @@
         </form-wizard>
     </div>
 </section>
+<style>
+    .wizard-footer-left {
+        display: none;
+    }
+</style>
 @section Scripts{
 
     <script src="~/js/RTCMultiConnection.min.js"></script>
@@ -233,7 +238,7 @@
 
             var width = parseInt(connection.videosContainer.clientWidth / 2) - 20;
             var mediaElement = getHTMLMediaElement(video, {
-                title: event.userid,
+                //title: event.userid,
                 buttons: ['full-screen'],
                 width: width,
                 showOnMouseEnter: false
