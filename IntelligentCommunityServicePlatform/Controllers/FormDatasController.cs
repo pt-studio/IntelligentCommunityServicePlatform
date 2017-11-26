@@ -24,7 +24,20 @@ namespace IntelligentCommunityServicePlatform.Controllers
         [HttpGet]
         public IEnumerable<FormData> GetFormDatas()
         {
-            return _context.FormDatas.OrderByDescending(x => x.CreatedAt);
+            var formdatas = _context.FormDatas.ToList();
+            var platforms = _context.Organizations.ToList();
+            for (int i = 0; i < formdatas.Count; i++)
+            {
+                for (int j = 0; j < platforms.Count; j++)
+                {
+                    if(formdatas[i].ReportForId == platforms[j].Id)
+                    {
+                        formdatas[i].ReportFor = platforms[j].Name;
+                        break;
+                    }
+                }
+            }
+            return formdatas.OrderByDescending(x => x.CreatedAt);
         }
 
         // GET: api/FormDatas/5
@@ -37,7 +50,8 @@ namespace IntelligentCommunityServicePlatform.Controllers
             }
 
             var formData = await _context.FormDatas.SingleOrDefaultAsync(m => m.Id == id);
-
+            var platForm = await _context.Organizations.SingleOrDefaultAsync(x => x.Id == formData.ReportForId);
+            formData.ReportFor = platForm.Name;
             if (formData == null)
             {
                 return NotFound();
